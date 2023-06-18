@@ -6,11 +6,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { priceId } = req.query;
+  const price = req.query?.priceId as string;
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     payment_method_types: ["card"],
-    line_items: [{ price: priceId!, quantity: 1 }],
+    // @ts ignore
+    line_items: [{ price, quantity: 1 }],
     success_url: `${SITE_URL}/success`,
     cancel_url: `${SITE_URL}/pricing`,
   });
