@@ -28,7 +28,7 @@ const ProductPage: FC<Props> = ({ product }) => {
     };
 
     getProductContent();
-  }, [supabaseClient]);
+  }, [supabaseClient, session, product]);
   // console.log(productContent);
   return (
     <section className="product-section">

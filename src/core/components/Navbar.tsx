@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import { SITE_URL } from "../utils";
+import { getURL } from "../utils";
 
 const Navbar = () => {
   const session = useSession();
@@ -11,7 +11,7 @@ const Navbar = () => {
     supabaseClient.auth.signOut();
   };
   const manageBilling = async () => {
-    const res = await fetch(`${SITE_URL}/api/manage-billing`);
+    const res = await fetch(`${getURL()}/api/manage-billing`);
     const data = await res.json();
     console.log(data);
     if (data) {

@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/src/core/utils";
+import { getURL } from "@/src/core/utils";
 import { stripe } from "@/src/pricing/utils/stripe";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -26,7 +26,7 @@ export default async function handler(
   const session = await stripe.billingPortal.sessions.create({
     //@ts-ignore
     customer: profile.stripe_customer_id,
-    return_url: SITE_URL,
+    return_url: getURL(),
   });
   // console.log("session from server", session);
   res.send({ url: session.url });
