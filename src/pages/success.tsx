@@ -16,7 +16,7 @@ export default function SuccessPage() {
           <h1>Youre in!</h1>
           <p>
             You can now access everything on this site <br /> Ready to get
-            started?
+            started?.
           </p>
           <Link href="/login" className="large-button">
             <div className="large-button-text">Go to login</div>
