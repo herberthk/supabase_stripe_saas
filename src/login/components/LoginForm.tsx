@@ -1,4 +1,4 @@
-import { getURL } from "@/src/core/utils";
+import { SITE_URL } from "@/src/core/utils";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Dispatch, FC, FormEvent, SetStateAction, useState } from "react";
 type Props = {
@@ -19,7 +19,7 @@ const LoginForm: FC<Props> = ({ setSubmited }) => {
       email,
       options: {
         shouldCreateUser: false,
-        emailRedirectTo: getURL(),
+        emailRedirectTo: SITE_URL,
       },
     });
     setLoading(false);

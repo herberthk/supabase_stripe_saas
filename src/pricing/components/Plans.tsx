@@ -1,4 +1,4 @@
-import { getURL } from "@/src/core/utils";
+import { SITE_URL } from "@/src/core/utils";
 import { Plan } from "@/types";
 import { loadStripe } from "@stripe/stripe-js";
 import { FC, useState } from "react";
@@ -17,7 +17,7 @@ const Plans: FC<Props> = ({ plans }) => {
   };
   const onCheckout = async () => {
     setRedirecting(true);
-    const response = await fetch(`${getURL()}/api/checkout/${plan?.id}`);
+    const response = await fetch(`${SITE_URL}/api/checkout/${plan?.id}`);
     const data = await response.json();
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY

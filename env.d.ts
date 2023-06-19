@@ -7,6 +7,7 @@ declare global {
       NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string;
       STRIPE_SECRET_KEY: string;
       STRIPE_SIGNING_SECRET: string;
+      NEXT_PUBLIC_URL: string;
     }
   }
 }
